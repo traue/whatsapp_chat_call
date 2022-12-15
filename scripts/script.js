@@ -1,5 +1,11 @@
 var brCode = '55';
 var walink = 'https://api.whatsapp.com/send?phone=';
+var version = '1.1.0';
+
+function load() {
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+    document.getElementById("version").innerHTML = version;
+}
 
 function openWa() {
     var number = document.getElementById('number').value;

@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="scripts/script.js"></script>
     <title>WA-Open</title>
 </head>
-<body>
+
+<body onload="load()">
     <div class="mainform">
 
         <input type="checkbox" class="form-check-input" id="addbrcode" checked onclick="addBrCode()">
         <label class="form-check-label">Add 55</label>
-        
+
         <input type="tel" class="form-control" onkeydown="numberchange()" name="number" id="number" value="55" required>
-        
+
         <br>
 
         <input type="submit" class="w-100 btn btn-success" onclick="openWa()" value="Open">
-        
+
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text text-white">©
+                <span id="year"></span> - Traue - v. <span id="version"></span>
+                <a href="https://github.com/traue/whatsapp_chat_call"> - View on GitHub</a>
+            </span>
+        </div>
+    </footer>
 </body>
+
 </html>
