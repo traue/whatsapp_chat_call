@@ -1,6 +1,6 @@
 var brCode = '55';
 var walink = 'https://api.whatsapp.com/send?phone=';
-var version = '1.1.0';
+var version = '1.2.0';
 
 function load() {
     document.getElementById("year").innerHTML = new Date().getFullYear();
@@ -13,7 +13,7 @@ function openWa() {
     if (validNumber(number))
         window.location.replace(walink + number);
     else
-        alert('Número inválido');
+        alert('Invalid number!');
 }
 
 function validNumber(number) {
@@ -29,7 +29,7 @@ function addBrCode() {
         if (numInput.value[0] = brCode[0] && numInput.value[1] == brCode[1]) {
             numInput.value = numInput.value.slice(2);
         } else {
-            alert('Não há código de país para remover!');
+            alert('There is no country code to remove!');
             chebrcode.checked = true;
         }
     }
