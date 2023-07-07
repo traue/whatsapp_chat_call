@@ -1,46 +1,62 @@
-var brCode = '55';
-var walink = 'https://api.whatsapp.com/send?phone=';
-var version = '1.2.0';
-
+/* =====Carregar Rodapé=====*/
 function load() {
-    document.getElementById("year").innerHTML = new Date().getFullYear();
-    document.getElementById("version").innerHTML = version;
+	document.getElementById("year").innerHTML = new Date().getFullYear();
+	document.getElementById("version").innerHTML = '1.2.0';
+}
+/* =====Carregar Rodapé=====*/
+
+/* =====Marcar Checkbox Código Telefônico=====*/
+function addEuCode() {
+	var euCode = '1';
+	var numInput = document.getElementById('number');
+	var cheeucode = document.getElementById('addeucode').checked;
+	if (cheeucode) {
+		numInput.value = '';
+		numInput.value = euCode + numInput.value;
+	}
+	else {
+		alert('País Inválido!');
+	}
 }
 
-function openWa() {
-    var number = document.getElementById('number').value;
-    number = number.replace(/[/\s&\/\\#,+()$~%.'":*?<>{}-]/g, '');
-    if (validNumber(number))
-        window.location.replace(walink + number);
-    else
-        alert('Invalid number!');
-}
-
-function validNumber(number) {
-    return number.length >= 11; //todo: number validadion correctly
+function addChCode() {
+	var chCode = '86';
+	var numInput = document.getElementById('number');
+	var chechcode = document.getElementById('addchcode').checked;
+	if (chechcode) {
+		numInput.value = '';
+		numInput.value = chCode + numInput.value;
+	}
+	else {
+		alert('País Inválido!');
+	}
 }
 
 function addBrCode() {
-    var numInput = document.getElementById('number')
-    var chebrcode = document.getElementById('addbrcode').checked;
-    if (chebrcode) {
-        numInput.value = brCode + numInput.value;
-    } else {
-        if (numInput.value[0] = brCode[0] && numInput.value[1] == brCode[1]) {
-            numInput.value = numInput.value.slice(2);
-        } else {
-            alert('There is no country code to remove!');
-            chebrcode.checked = true;
-        }
-    }
+	var brCode = '55';
+	var numInput = document.getElementById('number');
+	var chebrcode = document.getElementById('addbrcode').checked;
+	if (chebrcode) {
+		numInput.value = '';
+		numInput.value = brCode + numInput.value;
+	}
+	else {
+		alert('País Inválido!');
+	}
 }
+/* =====Marcar Checkbox Código Telefônico=====*/
 
-function numberchange() {
-    var chebrcode = document.getElementById('addbrcode');
-    var numInput = document.getElementById('number');
-    if (numInput.value[0] = brCode[0] && numInput.value[1] == brCode[1]) {
-        chebrcode.checked = true;
-    } else {
-        chebrcode.checked = false;
-    }
+/* =====Abrir WhatsappWeb=====*/
+var walink = 'https://api.whatsapp.com/send?phone=';
+function openWhats() {
+	var numInput = document.getElementById('number').value;
+	if (numInput.length >= 11) {
+		var whats = (walink + numInput);
+		whats.target = "_blank";
+		window.open(whats);
+	}
+	else {
+		alert('Número Inválido!');
+	}
 }
+/* =====Abrir WhatsappWeb=====*/

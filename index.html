@@ -1,39 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+<!-- =====Head===== -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="scripts/script.js"></script>
-    <title>WA-Open</title>
+	<!-- =====Meta Config.===== -->
+	<meta content="GrupoRoveri" name="author">
+	<meta content="Grupo Roveri" name="description">
+	<meta content="HTML,CSS,XML,JavaScript" name="keywords">
+	<meta name="viewport" content="width=device-width initial-scale= 1.0" charset="utf-8">
+	<!-- =====Meta Config.===== -->
+
+	<!-- =====Title Tab===== -->
+	<title>WhatsappWeb | Open</title>
+	<!-- =====Title Tab===== -->
+
+	<!-- =====Favicon===== -->
+	<link href="./assets/whats.png" rel="icon">
+	<!-- =====Favicon===== -->
+
+	<!-- =====CSS Imports===== -->
+	<link href="./styles/style.css" rel="stylesheet">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<!-- =====CSS Imports===== -->
+
+	<!-- =====JS Imports===== -->
+	<script src="./scripts/script.js"></script>
+	<!-- =====JS Imports===== -->
 </head>
+<!-- =====Head===== -->
+
+<!-- =====Body===== -->
 
 <body onload="load()">
-    <div class="mainform">
-
-        <input type="checkbox" class="form-check-input" id="addbrcode" checked onclick="addBrCode()">
-        <label class="form-check-label">Add 55</label>
-
-        <input type="tel" class="form-control" onkeydown="numberchange()" name="number" id="number" value="55" required>
-
-        <br>
-
-        <input type="submit" class="w-100 btn btn-success" onclick="openWa()" value="Open">
-
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <span class="text text-white">©
-                <span id="year"></span> - Traue - v. <span id="version"></span>
-                <a href="https://github.com/traue/whatsapp_chat_call"> - View on GitHub</a>
-            </span>
-        </div>
-    </footer>
+	<!-- =====Main Formulário===== -->
+	<section id="main">
+		<div class="mainform">
+			<form class="checks">
+				<input id="addeucode" type="radio" name="code" checked onclick="addEuCode()">
+				<label class="country">Eua</label>
+				<input id="addchcode" type="radio" name="code" checked onclick="addChCode()">
+				<label class="country">China</label>
+				<input id="addbrcode" type="radio" name="code" checked onclick="addBrCode()">
+				<label class="country">Brasil</label>
+			</form>
+			<input id="number" class="number" type="text" placeholder="5511912345678" value="" required></input>
+			<label class="button"><input class="none" type="submit" value="" onclick="openWhats()" target="_blank"><i
+					class='bx bx-send'></i></input></label>
+		</div>
+	</section>
+	<!-- =====Main Formulário===== -->
+	<!-- =====Footer===== -->
+	<footer>
+		<a class="rodape" href="https://github.com/traue/whatsapp_chat_call">
+			<p>© <span id="year"></span> Traue v.<span id="version"></span> view on GitHub</p>
+		</a>
+	</footer>
+	<!-- =====Footer===== -->
 </body>
+<!-- =====Body===== -->
 
 </html>

@@ -1,0 +1,115 @@
+body {
+	/*display*/
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: url('https://i.pinimg.com/originals/e8/d9/4e/e8d94e1e8b6b530ad315e9385290141b.jpg') no-repeat;
+}
+
+::selection {
+	color: none;
+	background: none;
+}
+
+#main {
+	/*display*/
+	display: flex;
+	width: auto;
+	height: 65vw;
+	justify-content: center;
+	align-items: center;
+}
+
+.mainform {
+	/*display*/
+	display: flex;
+	width: 30vw;
+	height: 20vw;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgba(13, 13, 13, 0.6);
+	/*border*/
+	border-radius: 1vw;
+}
+
+.checks {
+	/*display*/
+	display: flex;
+	margin-bottom: 2vw;
+	justify-content: center;
+	align-items: center;
+}
+
+.country {
+	/*font*/
+	font-size: 1.5vw;
+	font-weight: 700;
+	color: #FFFFFF;
+	/*display*/
+	margin: 1vw;
+	/*cursor*/
+	cursor: pointer;
+}
+
+.tel {
+	/*cursor*/
+	cursor: pointer;
+}
+
+.number {
+	/*font*/
+	text-align: center;
+	/*display*/
+	margin: 2vw;
+	padding: 1vw;
+	/*border*/
+	border: none;
+	box-shadow: none;
+	border-radius: 1vw;
+}
+
+.none {
+	/*display*/
+	display: none;
+	background: none;
+	/*border*/
+	border: none;
+}
+
+.button {
+	/*font*/
+	font-size: 1.5vw;
+	text-align: center;
+	color: #FFFFFF;
+	/*display*/
+	display: flex;
+	width: auto;
+	height: auto;
+	margin-top: 2vw;
+	padding: 1vw;
+	justify-content: center;
+	align-items: center;
+	background: #25D366;
+	/*border*/
+	border: none;
+	border-radius: 100%;
+	/*cursor*/
+	cursor: pointer;
+}
+
+.rodape {
+	/*font*/
+	font-family: helvetica;
+	font-size: 2vw;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.rodape:hover {
+	/*font*/
+	color: #25D366;
+}
