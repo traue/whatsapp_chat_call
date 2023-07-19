@@ -1,4 +1,6 @@
 body {
+	/*font*/
+	font-family: helvetica;
 	/*display*/
 	width: 100%;
 	height: 100%;
@@ -6,12 +8,10 @@ body {
 	padding: 0;
 	background: url('https://i.pinimg.com/originals/e8/d9/4e/e8d94e1e8b6b530ad315e9385290141b.jpg') no-repeat;
 }
-
 ::selection {
 	color: none;
 	background: none;
 }
-
 #main {
 	/*display*/
 	display: flex;
@@ -20,7 +20,6 @@ body {
 	justify-content: center;
 	align-items: center;
 }
-
 .mainform {
 	/*display*/
 	display: flex;
@@ -33,51 +32,170 @@ body {
 	/*border*/
 	border-radius: 1vw;
 }
-
-.checks {
+.container {
+	/*display*/
+    position: relative;
+    width: 25vw;
+    margin: 2vw auto;
+}
+.content {
 	/*display*/
 	display: flex;
-	margin-bottom: 2vw;
-	justify-content: center;
-	align-items: center;
+    justify-content: space-between;
+    align-items: center;
+	overflow: hidden;
+    background-color: #EEEEEE;
+	/*border*/
+    border-radius: 1vw;
 }
-
-.country {
-	/*font*/
-	font-size: 1.5vw;
-	font-weight: 700;
-	color: #FFFFFF;
-	/*display*/
-	margin: 1vw;
-	/*cursor*/
-	cursor: pointer;
-}
-
-.tel {
-	/*cursor*/
-	cursor: pointer;
-}
-
-.number {
+.contentIcon{
 	/*font*/
 	text-align: center;
 	/*display*/
-	margin: 2vw;
-	padding: 1vw;
-	/*border*/
-	border: none;
-	box-shadow: none;
-	border-radius: 1vw;
+	display: flex;
+    position: relative;
+    width: auto;
+    padding: 0 2vw 0 1vw;
+	justify-content: center;
+    align-items: center;
+    /*cursor*/
+    cursor: pointer;    
 }
-
-.none {
+.contentIcon::after{
+	/*display*/
+    position: absolute;
+    content: "";
+	width: 0.8vw;
+    height: 0.8vw;
+	top: 0%;
+    right: 5%;
+	transition: .2s;
+    transform: rotate(45deg);
+    /*border*/
+    border-right: 0.12vw solid #000000;
+    border-bottom: 0.12vw solid #000000;
+}
+.contentIcon.active::after{
+	/*display*/
+    transform: rotate(-135deg);
+	top: 45%;
+}
+#number {
+	/*font*/
+	font-size: 1.25vw;
+	/*display*/
+    width: auto;
+    padding: 1vw;
+    /*border*/
+    outline: none;
+	border: none;
+}
+.span-required {
+	/*font*/
+	font-size: 1.25vw;
+	font-weight: 700;
+	color: 	#ff0000;
+	/*display*/
+	display: flex;
+    position: relative;
+    width: 100%;
+    top: 1vw;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+.options {
 	/*display*/
 	display: none;
-	background: none;
+    position: absolute;
+	width: 100%;
+    top: 3.8vw;
+    background-color: #FFFFFF;
 	/*border*/
-	border: none;
+	border-radius: 1vw;
 }
-
+.options.active {
+	/*display*/
+    display: block;
+	height: 19vw;
+}
+.options::before {
+	/*display*/
+    position: absolute;
+    content: "";
+	width: 0;
+    height: 0;
+	top: -1.1vw;
+    left: 1vw;
+    /*border*/
+    border: 0.6vw solid transparent;
+    border-bottom-color: #25d365;
+}
+.search-box {
+	/*font*/
+	color: #000000;
+	font-size: 1.25vw !important;
+	/*display*/
+    width: 23vw !important;
+    padding: 1vw !important;
+	background-color: #25d365;
+	/*border*/
+	outline: none;
+	border: none;
+    border-radius: 0.8vw 0.8vw 0 0;
+}
+.lista {
+	/*font*/
+    list-style: none;
+	/*display*/
+    max-height: 15vw;
+	margin: 0;
+    padding: 0;
+    overflow: overlay;
+	/*border*/
+	border-radius: 1vw;
+}
+.lista::-webkit-scrollbar {
+	/*display*/
+    width: 0.6vw;
+}
+.lista::-webkit-scrollbar-thumb {
+	/*display*/
+    width: 0.4vw;
+    height: 3vw;
+    background: #FFFFFF;
+	/*border*/
+    border-radius: .4vw;
+}
+li {
+	/*display*/
+	display: flex;
+    padding: 1vw;
+    justify-content: space-between;
+	/*cursor*/
+    cursor: pointer;
+}
+li.hide {
+	/*display*/
+    display: none;
+	overflow-y: scroll;
+}
+li:not(:last-child) {
+	/*border*/
+    border-bottom: .1vw solid #FFFFFF;
+	border-radius: 1.5vw;
+	overflow: hidden;
+}
+li:hover {
+	/*display*/
+    background: rgba(37, 211, 102, 0.5);
+	/*border*/
+	border-radius: 1.5vw;
+}
+li .country-name {
+	/*display*/
+    margin-left: .4vw;
+}
 .button {
 	/*font*/
 	font-size: 1.5vw;
@@ -87,7 +205,7 @@ body {
 	display: flex;
 	width: auto;
 	height: auto;
-	margin-top: 2vw;
+	margin: 0;
 	padding: 1vw;
 	justify-content: center;
 	align-items: center;
@@ -98,18 +216,34 @@ body {
 	/*cursor*/
 	cursor: pointer;
 }
-
+.none {
+	/*display*/
+	display: none;
+	background: none;
+	/*border*/
+	border: none;
+}
 .rodape {
 	/*font*/
-	font-family: helvetica;
 	font-size: 2vw;
 	font-weight: 700;
 	text-align: center;
 	text-decoration: none;
 	color: #FFFFFF;
 }
-
 .rodape:hover {
 	/*font*/
 	color: #25D366;
 }
+
+
+
+
+
+
+
+
+
+
+
+

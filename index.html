@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <!-- =====Head===== -->
-
 <head>
 	<!-- =====Meta Config.===== -->
 	<meta content="GrupoRoveri" name="author">
 	<meta content="Grupo Roveri" name="description">
 	<meta content="HTML,CSS,XML,JavaScript" name="keywords">
 	<meta name="viewport" content="width=device-width initial-scale= 1.0" charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- =====Meta Config.===== -->
 
 	<!-- =====Title Tab===== -->
@@ -21,31 +21,40 @@
 	<!-- =====CSS Imports===== -->
 	<link href="./styles/style.css" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
 	<!-- =====CSS Imports===== -->
 
 	<!-- =====JS Imports===== -->
-	<script src="./scripts/script.js"></script>
+	<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 	<!-- =====JS Imports===== -->
 </head>
 <!-- =====Head===== -->
 
 <!-- =====Body===== -->
-
 <body onload="load()">
 	<!-- =====Main Formulário===== -->
 	<section id="main">
 		<div class="mainform">
-			<form class="checks">
-				<input id="addeucode" type="radio" name="code" checked onclick="addEuCode()">
-				<label class="country">Eua</label>
-				<input id="addchcode" type="radio" name="code" checked onclick="addChCode()">
-				<label class="country">China</label>
-				<input id="addbrcode" type="radio" name="code" checked onclick="addBrCode()">
-				<label class="country">Brasil</label>
-			</form>
-			<input id="number" class="number" type="text" placeholder="5511912345678" value="" required></input>
-			<label class="button"><input class="none" type="submit" value="" onclick="openWhats()" target="_blank"><i
-					class='bx bx-send'></i></input></label>
+			<h1 style="color: #25D366;">Conversa Whatsapp</h1>
+			<div class="container">
+				<div class="content">
+					<div class="contentIcon">
+						<span class="iconify" data-icon="flag:br-4x3"></span>
+						<strong>+55</strong>
+					</div>
+					<input id="number" type="tel" name="tel" value="55" placeholder="Phone Number">
+				</div>
+				<span class="span-required">Digite um número!</span>
+				<div class="options">
+					<input class="search-box" type="text" placeholder="Pesquise o nome do país...">
+					<ol class="lista"></ol>
+				</div>
+			</div>
+			<label class="button">
+				<input class="none" type="submit" value="" onclick="openWhats()" target="_blank">
+					<i class='bx bx-send'></i>
+				</input>
+			</label>
 		</div>
 	</section>
 	<!-- =====Main Formulário===== -->
@@ -56,6 +65,10 @@
 		</a>
 	</footer>
 	<!-- =====Footer===== -->
+
+	<!-- =====JS Import===== -->
+	<script src="./scripts/script.js"></script>
+	<!-- =====JS Import===== -->
 </body>
 <!-- =====Body===== -->
 
