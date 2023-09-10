@@ -18,6 +18,8 @@
 			<a align="center" href="https://traue.com.br/open-wa" target="_blank">
 				<img width="50vw" height="50vw" src="https://github.com/JapaScripter/whatsapp_chat_call/blob/main/assets/whats.png">
 			</a>
+			<br><br>
+			<p>Special thanks to @JapaScripter</p>
 		</div>
 	</div>
 </section>
