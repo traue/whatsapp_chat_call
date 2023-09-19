@@ -1,7 +1,7 @@
 /* =====Carregar Rodapé=====*/
 function load() {
 	document.getElementById("year").innerHTML = new Date().getFullYear();
-	document.getElementById("version").innerHTML = '2.0.1';
+	document.getElementById("version").innerHTML = '2.0.3';
 }
 /* =====Carregar Rodapé=====*/
 
@@ -10,6 +10,7 @@ var walink = 'https://api.whatsapp.com/send?phone=';
 function openWhats() {
 	var numInput = document.getElementById('number').value;
 	if (numInput.length >= 11) {
+        numInput = numInput.replace(/[/\s&\/\\#,+()$~%.'":*?<>{}-]/g, '');
 		var whats = (walink + numInput);
 		whats.target = "_blank";
 		window.open(whats);

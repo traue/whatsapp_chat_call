@@ -23,8 +23,8 @@ body {
 .mainform {
 	/*display*/
 	display: flex;
-	width: 30vw;
-	height: 20vw;
+	width: 40%;
+	height: 50%;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -230,6 +230,11 @@ li .country-name {
 	text-align: center;
 	text-decoration: none;
 	color: #FFFFFF;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+  
 }
 .rodape:hover {
 	/*font*/
