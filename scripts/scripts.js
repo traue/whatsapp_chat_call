@@ -8,7 +8,7 @@ function load() {
   //get flags
   Array.from(document.getElementById("countryCode").options).forEach(function(country_flags) {
     let flag = country_flags.getAttribute('data-countryCode');
-    country_flags.text =  getFlagEmoji(flag) + ' ' + country_flags.text;
+    country_flags.text += ' ' + getFlagEmoji(flag)
 });
 
 }
