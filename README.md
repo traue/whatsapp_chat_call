@@ -1,4 +1,4 @@
-# whataApp Chat Open
+# WhataApp Chat Open
 
 Open source project for a simple website to open WhatsApp chat.
 
