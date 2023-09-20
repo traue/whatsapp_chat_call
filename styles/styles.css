@@ -1,0 +1,102 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  min-height: 50px;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  min-height: 50px;
+  color: white;
+  text-decoration: none;
+}
+
+footer a {
+	text-decoration: none;
+	color: white;
+}
+
+.container {
+  margin: 0 auto;
+  background-color: rgba(128, 128, 128, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  border-top: solid 7px #25d366;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+label {
+  text-align: left;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+select,
+input,
+textarea {
+  background-color: #121212;
+  color: white;
+  width: 100%;
+  padding: 15px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.span-required {
+	color: 	#ff0000;
+	display: none;
+    position: relative;
+    align-items: left;
+	margin-top: -0.001em;
+	margin-left: 5px;
+	margin-bottom: -8px;
+}
+
+textarea {
+	white-space: pre-wrap;
+}
+
+button {
+  margin-top: 15px;
+  background-color: #25d366;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #075e54;
+  color: white;
+}
+
+.footer:hover {
+  color: #25d366;
+}

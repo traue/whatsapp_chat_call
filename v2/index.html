@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!-- =====Head===== -->
+<head>
+	<!-- =====Meta Config.===== -->
+	<meta content="HTML,CSS,XML,JavaScript" name="keywords">
+	<meta name="viewport" content="width=device-width initial-scale=1.0" charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- =====Meta Config.===== -->
+
+	<!-- =====Title Tab===== -->
+	<title>WhatsappWeb | Open</title>
+	<!-- =====Title Tab===== -->
+
+	<!-- =====Favicon===== -->
+	<link href="./assets/whats.png" rel="icon">
+	<!-- =====Favicon===== -->
+
+	<!-- =====CSS Imports===== -->
+	<link href="./styles/style.css" rel="stylesheet">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+	<!-- =====CSS Imports===== -->
+
+	<!-- =====JS Imports===== -->
+	<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+	<!-- =====JS Imports===== -->
+</head>
+<!-- =====Head===== -->
+
+<!-- =====Body===== -->
+<body onload="load()">
+	<!-- =====Main Formulário===== -->
+	<section id="main">
+		<div class="mainform">
+			<h1 style="color: #25D366;">Whatsapp Chat Call</h1>
+			<div class="container">
+				<div class="content">
+					<div class="contentIcon">
+						<span class="iconify" data-icon="flag:br-4x3"></span>
+						<strong>+55</strong>
+					</div>
+					<input id="number" type="tel" name="tel" value="55" placeholder="Phone Number">
+				</div>
+				<span class="span-required">Type a number</span>
+				<div class="options">
+					<input class="search-box" type="text" placeholder="Search country name...">
+					<ol class="lista"></ol>
+				</div>
+			</div>
+			<label class="button">
+				<input class="none" type="submit" value="" onclick="openWhats()" target="_blank">
+					<i class='bx bx-send'></i>
+				</input>
+			</label>
+		</div>
+	</section>
+	<!-- =====Main form===== -->
+	<!-- =====Footer===== -->
+	<footer>
+		<a class="rodape" href="https://github.com/traue/whatsapp_chat_call">
+			<p>© <span id="year"></span> Traue - v.<span id="version"></span> - view on GitHub</p>
+		</a>
+	</footer>
+	<!-- =====Footer===== -->
+
+	<!-- =====JS Import===== -->
+	<script src="./scripts/script.js"></script>
+	<!-- =====JS Import===== -->
+</body>
+<!-- =====Body===== -->
+
+</html>
