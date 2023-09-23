@@ -3,7 +3,7 @@ var walink = "https://api.whatsapp.com/send?phone=";
 
 function load() {
   document.getElementById("year").innerHTML = new Date().getFullYear();
-  document.getElementById("version").innerHTML = "3.0.0";
+  document.getElementById("version").innerHTML = "3.0.1";
 
   //get flags
   Array.from(document.getElementById("countryCode").options).forEach(function(country_flags) {
