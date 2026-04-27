@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  const VERSION = '4.0.0';
+  const VERSION = '4.1.0';
 
   const STORAGE = {
     history: 'wo:history:v1',

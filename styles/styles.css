@@ -412,8 +412,15 @@ h1.tagline {
   flex-direction: column;
   gap: 4px;
   margin: 0 -4px;
-  padding: 0 4px;
+  padding: 0 4px 4px;
+  max-height: 380px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
+.history-list::-webkit-scrollbar { width: 4px; }
+.history-list::-webkit-scrollbar-track { background: transparent; }
+.history-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
 .history-item {
   display: flex;
