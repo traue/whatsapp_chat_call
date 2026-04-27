@@ -41,15 +41,24 @@
     return buf.slice(data.length);
   }
 
-  // QR version capacities for byte-mode level M (data codewords)
-  // [version 1..10]
-  const CAP_BYTE_M = [14, 26, 42, 62, 84, 106, 122, 152, 180, 213];
+  // QR data-codeword capacities for level M, versions 1..10. Per ISO/IEC 18004
+  // Annex 1, Table 9 (data codewords = total codewords − EC codewords × blocks).
+  const CAP_BYTE_M = [16, 28, 44, 64, 86, 108, 124, 154, 182, 216];
   const TOTAL_CW   = [26, 44, 70, 100, 134, 172, 196, 242, 292, 346];
   const EC_PER_BLK_M = [10, 16, 26, 18, 24, 16, 18, 22, 22, 26];
   const BLOCKS_M    = [1, 1, 1, 2, 2, 4, 4, 4, 5, 5];
+  // Alignment-pattern centre coordinates per version (Annex E). Index = version-1.
   const ALIGN_POS = [
-    [], [], [6,18], [6,22], [6,26], [6,30], [6,34],
-    [6,22,38], [6,24,42], [6,26,46], [6,28,50],
+    [],           // v1
+    [6, 18],      // v2
+    [6, 22],      // v3
+    [6, 26],      // v4
+    [6, 30],      // v5
+    [6, 34],      // v6
+    [6, 22, 38],  // v7
+    [6, 24, 42],  // v8
+    [6, 26, 46],  // v9
+    [6, 28, 50],  // v10
   ];
 
   function pickVersion(byteLen) {
@@ -271,15 +280,23 @@
     const { m, size } = grid;
     const data = (ecLevel << 3) | maskId;
     const bits = bchFormat(data);
-    // 15 bits
     function bit(i) { return (bits >> i) & 1; }
-    // copy 1
-    for (let i = 0; i <= 5; i++) m[8][i] = bit(i);
-    m[8][7] = bit(6); m[8][8] = bit(7); m[7][8] = bit(8);
-    for (let i = 9; i <= 14; i++) m[14 - i][8] = bit(i);
-    // copy 2
-    for (let i = 0; i <= 7; i++) m[size - 1 - i][8] = bit(i);
-    for (let i = 8; i <= 14; i++) m[8][size - 15 + i] = bit(i);
+
+    // Vertical strip (column 8): one full 15-bit copy of the format info.
+    // Bit i lands at:  rows 0..5 for i=0..5, rows 7..8 for i=6..7 (skipping the
+    // timing pattern at row 6), then rows size-7..size-1 for i=8..14.
+    for (let i = 0; i < 15; i++) {
+      const row = i < 6 ? i : (i < 8 ? i + 1 : size - 15 + i);
+      m[row][8] = bit(i);
+    }
+    // Horizontal strip (row 8): the second copy of the same 15 bits.
+    // Bit i lands at:  cols size-1..size-8 for i=0..7, col 7 for i=8 (skipping
+    // the timing pattern at col 6), then cols 5..0 for i=9..14.
+    for (let i = 0; i < 15; i++) {
+      const col = i < 8 ? size - 1 - i : (i === 8 ? 7 : 14 - i);
+      m[8][col] = bit(i);
+    }
+    // Dark module — always 1.
     m[size - 8][8] = 1;
   }
 
