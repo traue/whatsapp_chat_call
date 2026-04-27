@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>WhatsOpener — Redesign</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #f0eee9;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  * { box-sizing: border-box; }
+  /* prevent native select chrome leaking thru */
+  select { font-family: inherit; }
+</style>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <rect width="200" height="200" fill="#f1ede4"/>
+    <g transform="translate(100,100)">
+      <circle r="42" fill="#3a7d5c"/>
+      <path d="M-14,-14 a18,18 0 1,1 0,28 l-8,6 3,-10 a18,18 0 0,1 5,-24 z" fill="#fff"/>
+    </g>
+    <text x="100" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#29261b">WhatsOpener</text>
+  </svg>
+</template>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="i18n.js"></script>
+<script src="qr.js"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="opener-core.jsx"></script>
+<script type="text/babel" src="variant-a.jsx"></script>
+<script type="text/babel" src="variant-b.jsx"></script>
+
+<script type="text/babel">
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#ffa57d",
+    "fontFamily": "Inter",
+    "density": "spacious"
+  }/*EDITMODE-END*/;
+
+  const FONT_OPTIONS = ['Geist', 'Inter', 'Instrument Serif'];
+  const ACCENT_PRESETS = [
+    { k: 'sage',     v: '#3a7d5c', name: 'Sage' },
+    { k: 'forest',   v: '#1f5d44', name: 'Forest' },
+    { k: 'olive',    v: '#5a6b3a', name: 'Olive' },
+    { k: 'graphite', v: '#2a2e2c', name: 'Graphite' },
+    { k: 'amber',    v: '#a16438', name: 'Amber' },
+  ];
+
+  function App() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+    const tweaks = {
+      accent: t.accent,
+      fontFamily: t.fontFamily + ", -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
+      density: t.density,
+    };
+
+    return (
+      <>
+        <DesignCanvas>
+          <DCSection id="variants" title="WhatsOpener" subtitle="Two takes on the same minimal opener — verde sutil + neutros, bilíngue PT/EN, histórico local.">
+            <DCArtboard id="a" label="A · Centered minimalist" width={520} height={900}>
+              <window.WO_VariantA tweaks={tweaks} />
+            </DCArtboard>
+            <DCArtboard id="b" label="B · Two-pane / sidebar history" width={920} height={720}>
+              <window.WO_VariantB tweaks={tweaks} />
+            </DCArtboard>
+          </DCSection>
+        </DesignCanvas>
+
+        <TweaksPanel>
+          <TweakSection label="Accent" />
+          <TweakRow label="Color">
+            <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+              {ACCENT_PRESETS.map(p => (
+                <button
+                  key={p.k}
+                  onClick={() => setTweak('accent', p.v)}
+                  title={p.name}
+                  style={{
+                    width: 22, height: 22, borderRadius: 999,
+                    border: t.accent === p.v ? '2px solid #29261b' : '1px solid rgba(0,0,0,0.15)',
+                    background: p.v, cursor: 'pointer', padding: 0,
+                  }}
+                />
+              ))}
+            </div>
+          </TweakRow>
+          <TweakColor label="Custom" value={t.accent} onChange={(v) => setTweak('accent', v)} />
+
+          <TweakSection label="Type" />
+          <TweakSelect
+            label="Font family"
+            value={t.fontFamily}
+            options={FONT_OPTIONS}
+            onChange={(v) => setTweak('fontFamily', v)}
+          />
+
+          <TweakSection label="Layout" />
+          <TweakRadio
+            label="Density"
+            value={t.density}
+            options={['regular', 'spacious']}
+            onChange={(v) => setTweak('density', v)}
+          />
+        </TweaksPanel>
+      </>
+    );
+  }
+
+  // small wrapper for label-on-left / control-on-right rows
+  function TweakRow({ label, children }) {
+    return (
+      <div className="twk-row twk-row-h">
+        <div className="twk-lbl"><span>{label}</span></div>
+        {children}
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
